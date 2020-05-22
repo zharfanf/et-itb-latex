@@ -1,38 +1,43 @@
 \clearpage
 \pagestyle{empty}
 
+% Setting margin for cover page
+\newgeometry{top=3cm,bottom=3cm,left=3cm,right=3cm}
+
 \begin{center}
-\smallskip
+    
+    \smallskip
 
-    \Large \bfseries \MakeUppercase{\thetitle}
-    \vfill
+    \large{\bfseries \MakeUppercase{\thetitle}}
+    \\[2\baselineskip]
 
-    \Large Laporan Tugas Akhir
-    \vfill
+    \large{\bfseries Laporan Tugas Akhir}
+    \\[\baselineskip]
 
-    \large Disusun sebagai syarat kelulusan tingkat sarjana
-    \vfill
+    \normalsize{ \bfseries
+    	Disusun sebagai syarat kelulusan tingkat sarjana
+	}
+    \\[3\baselineskip]
 
-    \large Oleh
-
-    \Large \theauthor
+    \normalsize{ \bfseries Oleh\\}
+    \large{ \bfseries \MakeUppercase{\theauthor}}
 
     \vfill
     \begin{figure}[h]
         \centering
-      	\includegraphics[width=0.15\textwidth,natwidth=700,natheight=1021]{resources/cover-ganesha.jpg}
+      	\includegraphics[height=3.5cm,keepaspectratio]{resources/cover-ganesha.jpg}
     \end{figure}
     \vfill
 
-    \large
-    \uppercase{
-        Program Studi Teknik Informatika \\
-        Sekolah Teknik Elektro dan Informatika \\
-        Institut Teknologi Bandung
-    }
-
-    November 2016
+    \large{ \bfseries
+	    \uppercase{
+	        Program Studi Teknik Informatika \\
+	        Sekolah Teknik Elektro dan Informatika \\
+	        Institut Teknologi Bandung\\
+	    }
+    	November 2016
+	}
 
 \end{center}
-
+\restoregeometry
 \clearpage
