@@ -53,5 +53,24 @@
 \makeatother
 
 % Counter untuk figure dan table.
-\counterwithin{figure}{section}
-\counterwithin{table}{section}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+%  MATHS AND EQUATIONS  %
+%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{mathtools}
+
+% Counter untuk equation
+\renewcommand*{\theequation}{\thechapter.\arabic{equation}}
+
+% Allow page breaks on long equations
+\allowdisplaybreaks[1-4]
+
+% Operator dan notasi custom tambahan
+% contoh: argmin dan argmax
+\DeclareMathOperator*{\argmax}{argmax}
+\DeclareMathOperator*{\argmin}{argmin}
+% contoh: notasi bayes p(x | y)
+\newcommand{\bayes}[2]{P(#1 \mid #2)\xspace}
