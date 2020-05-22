@@ -44,19 +44,21 @@
     \input{chapters/abstract-en}
     \input{chapters/forewords}
 
-    \titleformat*{\section}{\centering\bfseries\Large\MakeUpperCase}
-
     \tableofcontents
+    \listofappendices
     \listoffigures
     \listoftables
 
-    \titleformat*{\section}{\bfseries\Large}
-    \pagenumbering{arabic}
-
+    
     %----------------------------------------------------------------%
     % Konfigurasi Bab
     %----------------------------------------------------------------%
-    \setcounter{page}{0}
+    %------------------------------------------------------%
+    % Hack: 2 baris berikut dipindah ke chapter-1.tex
+    %   previous method: nomor halaman sebelum BAB I jadi 0
+    %------------------------------------------------------%
+    % \pagenumbering{arabic}
+    % \setcounter{page}{0}
     \renewcommand{\chaptername}{BAB}
     \renewcommand{\thechapter}{\Roman{chapter}}
     %----------------------------------------------------------------%
@@ -75,13 +77,24 @@
     % Daftar pustaka
     \printbibliography
 
+    % Before:
+    % ---
     % Index
-    \appendix
+    % \appendix
+    % \addcontentsline{toc}{part}{Lampiran}
+    % \part*{Lampiran}
+    % ---
 
-    \addcontentsline{toc}{part}{Lampiran}
-    \part*{Lampiran}
-
-    \input{chapters/appendix-1}
-    \input{chapters/appendix-2}
+    % Format judul bab lampiran
+    \titleformat{\chapter}[hang]
+      {\large\bfseries}
+      {\chaptertitlename\ \thechapter}{1em}
+        {\large\bfseries}
+    \titlespacing*{\chapter}{0pt}{-1.5\baselineskip}{\parskip}
+    
+    \begin{appendices}
+        \input{chapters/appendix-1}
+        \input{chapters/appendix-2}
+    \end{appendices}
 
 \end{document}
