@@ -223,6 +223,15 @@ format=hang]{caption}
 \AtBeginEnvironment{table}
   {\renewcommand{\baselinestretch}{1.0}}
 
+% Avoid widow and orphan lines if possible
+\widowpenalty500
+\clubpenalty10000
+
+% Hyphenation penalty
+\hyphenpenalty=10000
+\tolerance=1
+\sloppy
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%
 %  MATHS AND EQUATIONS  %
