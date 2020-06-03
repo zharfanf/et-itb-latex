@@ -18,6 +18,9 @@ Kebutuhan
 Program telah diuji dalam sistem operasi Linux Ubuntu 14.04. Untuk melakukan instalasi
 perangkat lunak yang dibutuhkan, eksekusi perintah berikut.
 
+> **Update (2020/06/04)** Template telah diuji dan berjalan dengan baik dalam OS Linux
+> Ubuntu 16.04 dan 18.04.
+
 ```
 sudo apt-get -qq update && sudo apt-get install -y --no-install-recommends \
     texlive-fonts-recommended texlive-latex-extra texlive-fonts-extra \
