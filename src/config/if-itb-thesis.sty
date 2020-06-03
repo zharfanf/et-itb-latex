@@ -145,6 +145,13 @@ patent,unpublished,misc]
 % Hilangkan gap antar-bab di ToC
 \setlength{\cftbeforechapskip}{0pt}
 
+% Tambah kata "BAB" sebelum nomor bab di daftar isi
+% TODO: still problematic when used with list of appendices
+% \renewcommand{\cftchappresnum}{BAB~} % BAB before number in ToC
+% \newlength{\mylen} % a scratch length
+% \settowidth{\mylen}{\bfseries\cftchappresnum\cftchapaftersnum} % extra space
+% \addtolength{\cftchapnumwidth}{\mylen} % add the extra space
+
 % Pisah daftar lampiran dari ToC
 %%%
 \renewcommand{\appendixtocname}{Daftar Lampiran}
