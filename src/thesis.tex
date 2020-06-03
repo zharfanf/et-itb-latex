@@ -75,7 +75,10 @@
     %----------------------------------------------------------------%
 
     % Daftar pustaka
-    \printbibliography
+    \begingroup
+        \renewcommand{\baselinestretch}{1.0}
+        \printbibliography[heading=bibintoc]
+    \endgroup
 
     % Before:
     % ---
