@@ -50,8 +50,9 @@ Templat ini dapat digunakan secara gratis, akan tetapi penulis sangat
 berharap adanya kritik serta saran dari pengguna untuk meningkatkan
 kualitas hasil dan penggunaan templat ini.
 
+[comment]: <> (temporary change to link biar gk bingung)
 Kritik dan saran tersebut dapat dikirim melalui URL
-<https://github.com/petrabarus/if-itb-latex/issues>.
+<https://github.com/dionesiusap/if-itb-latex/issues>.
 
 Terima Kasih
 -----------
