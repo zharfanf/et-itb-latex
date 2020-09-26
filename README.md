@@ -1,5 +1,5 @@
-Templat LaTeX Tesis Informatika ITB
-===================================
+Template LaTeX Dokumen Tugas Akhir/Tesis Informatika ITB
+========================================================
 oleh: Petra Novandi <me@petrabarus.net>
 
 Dokumen ini merupakan templat LaTeX yang ditujukan untuk laporan
@@ -40,6 +40,9 @@ make
 
 Hasil kompilasi akan berada pada berkas `output/tesis.pdf`.
 
+Agar menulis dokumen lebih mudah bisa juga menggunakan aplikasi tex editor seperti
+[TeXstudio](https://www.texstudio.org/) atau [overleaf](https://www.overleaf.com).
+
 Kontribusi
 ----------
 
@@ -55,3 +58,9 @@ Terima Kasih
 
 * Steven Lolong atas pemberian templat LaTeX yang asli.
 * Peb Ruswono Aryan atas bantuan pelengkapan struktur dokumen.
+
+TO DO
+-----
+**Feel free to drop suggestions and issues [here](https://github.com/dionesiusap/if-itb-latex/issues) (PRs are also welcome!)**
+
+- [ ] List of Appendices format (see [issue #1](https://github.com/dionesiusap/if-itb-latex/issues/1))
