@@ -3,7 +3,7 @@
 % Konfigurasi dokumen LaTeX untuk laporan tesis IF ITB
 %
 % @author Petra Novandi
-%
+% updated by Dionesius Agung (2020)
 %-------------------------------------------------------------------%
 %
 % Berkas asli berasal dari Steven Lolong
@@ -16,7 +16,8 @@
 % Setting margin
 \usepackage[top=3cm,bottom=3cm,left=4cm,right=3cm]{geometry}
 
-\usepackage{mathptmx}
+% Uncomment this line to use TNR font instead of CMU
+%\usepackage{mathptmx}
 
 % Judul bahasa Indonesia
 \usepackage[bahasa]{babel}
@@ -146,7 +147,7 @@ patent,unpublished,misc]
 \setlength{\cftbeforechapskip}{0pt}
 
 % Tambah kata "BAB" sebelum nomor bab di daftar isi
-% TODO: still problematic when used with list of appendices
+% TODO: still problematic when used with list of appendices (uncomment these 4 following lines to reproduce the problem)
 % \renewcommand{\cftchappresnum}{BAB~} % BAB before number in ToC
 % \newlength{\mylen} % a scratch length
 % \settowidth{\mylen}{\bfseries\cftchappresnum\cftchapaftersnum} % extra space
