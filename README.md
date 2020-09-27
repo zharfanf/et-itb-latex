@@ -1,10 +1,12 @@
-Template LaTeX Dokumen Tugas Akhir/Tesis Informatika ITB
+Template LaTeX Dokumen Tugas Akhir/Tesis Teknik Biomedis ITB
 ========================================================
-oleh: Petra Novandi <me@petrabarus.net>
+templat asli oleh: Petra Novandi <me@petrabarus.net>
+diperbarui oleh: Dionesius Agung Andika Perkasa <dionesiusap@gmail.com>
+diadaptasi oleh: Irfan Tito Kurniawan <irfantitok@gmail.com>
 
 Dokumen ini merupakan templat LaTeX yang ditujukan untuk laporan
-tesis di program studi Teknik Informatika ITB. Templat ini penulis
-gunakan dalam penulisan laporan tesis penulis dan dengan semangat
+tesis di program studi Teknik Biomedis ITB. Templat ini penulis
+gunakan dalam penulisan laporan tugas akhir penulis dan dengan semangat
 berbagi penulis memutuskan untuk mempublikasikan templat ini agar
 dapat digunakan oleh banyak orang.
 
