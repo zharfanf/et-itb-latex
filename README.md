@@ -1,12 +1,12 @@
 Template LaTeX Dokumen Tugas Akhir/Tesis Teknik Biomedis ITB
 ========================================================
 templat asli oleh: Petra Novandi <me@petrabarus.net>  
-diperbarui oleh: Dionesius Agung Andika Perkasa <dionesiusap@gmail.com>  
-diadaptasi oleh: Irfan Tito Kurniawan <irfantitok@gmail.com>
+diperbarui oleh: [Dionesius Agung](https://github.com/dionesiusap)  
+diadaptasi oleh: [Irfan Tito](https://github.com/titoirfan)
 
 Dokumen ini merupakan templat LaTeX yang ditujukan untuk laporan
-tesis di program studi Teknik Biomedis ITB. Templat ini penulis
-gunakan dalam penulisan laporan tugas akhir penulis dan dengan semangat
+tugas akhir atau tesis di program studi Teknik Biomedis ITB. Templat ini 
+penulis gunakan dalam penulisan laporan tugas akhir penulis dan dengan semangat
 berbagi penulis memutuskan untuk mempublikasikan templat ini agar
 dapat digunakan oleh banyak orang.
 
@@ -20,8 +20,10 @@ Kebutuhan
 Program telah diuji dalam sistem operasi Linux Ubuntu 14.04. Untuk melakukan instalasi
 perangkat lunak yang dibutuhkan, eksekusi perintah berikut.
 
-> **Update (2020/06/04)** Template telah diuji dan berjalan dengan baik dalam OS Linux
+> **Update (2020/06/04)** Templat telah diuji dan berjalan dengan baik dalam OS Linux
 > Ubuntu 16.04 dan 18.04.
+> **Update (2020/09/28)** Templat telah diuji dan berjalan dengan baik dalam OS Linux
+> Ubuntu 20.04
 
 ```
 sudo apt-get -qq update && sudo apt-get install -y --no-install-recommends \
