@@ -1,7 +1,7 @@
 Template LaTeX Dokumen Tugas Akhir/Tesis Teknik Biomedis ITB
 ========================================================
-templat asli oleh: Petra Novandi <me@petrabarus.net>
-diperbarui oleh: Dionesius Agung Andika Perkasa <dionesiusap@gmail.com>
+templat asli oleh: Petra Novandi <me@petrabarus.net>  
+diperbarui oleh: Dionesius Agung Andika Perkasa <dionesiusap@gmail.com>  
 diadaptasi oleh: Irfan Tito Kurniawan <irfantitok@gmail.com>
 
 Dokumen ini merupakan templat LaTeX yang ditujukan untuk laporan
