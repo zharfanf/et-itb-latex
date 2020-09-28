@@ -13,6 +13,9 @@
 *.ind
 *.backup
 *.synctex.gz
+*-blx.bib
+*.app
+*.xml
 texmf
 thesis.pdf
 .directory
