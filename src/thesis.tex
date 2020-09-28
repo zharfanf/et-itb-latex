@@ -4,6 +4,7 @@
 %
 % author Petra Barus, Peb Ruswono Aryan
 % updated by Dionesius Agung (2020)
+% adapted by Irfan Tito Kurniawan (2020)
 %--------------------------------------------------------------------%
 %
 % Berkas ini berisi struktur utama dokumen LaTeX yang akan dibuat.
@@ -12,7 +13,7 @@
 
 \documentclass[12pt, a4paper, onecolumn, oneside, final]{report}
 
-\input{config/if-itb-thesis.sty}
+\input{config/eb-itb-thesis.sty}
 
 \makeatletter
 
@@ -23,27 +24,28 @@
 \begin{document}
 
     %Basic configuration
-    \title{Panduan Tugas Akhir Informatika}
+    \title{Templat Tesis Teknik Biomedis}
     \date{\today}
     \author{
-        Dionesius Agung Andika P \\
-        NIM: 13516043
+        Irfan Tito Kurniawan \\
+        NIM: 18317019
     }
 
     \pagenumbering{roman}
     \setcounter{page}{0}
 
     \input{chapters/cover}
-    % ganti menjadi approval-single-advisor jika pembimbing 1 orang
-    \input{chapters/approval-multiple-advisors}
-%    \input{chapters/approval-single-advisor}
+    \input{chapters/abstract-id}
+	\input{chapters/abstract-en}
+    % ganti menjadi approval-multiple-advisor jika pembimbing >1 orang
+    % \input{chapters/approval-multiple-advisors}
+    \input{chapters/approval-single-advisor}
     \input{chapters/statement}
+    % TODO: add usage guidance chapter
 
     \pagestyle{plain}
 
     % Frontmatter
-    \input{chapters/abstract-id}
-    \input{chapters/abstract-en}
     \input{chapters/forewords}
 
     % Hacks to capitalize all chapter-level titles in ToC
