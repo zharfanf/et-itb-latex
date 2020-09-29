@@ -29,7 +29,7 @@ perangkat lunak yang dibutuhkan, eksekusi perintah berikut.
 sudo apt-get -qq update && sudo apt-get install -y --no-install-recommends \
     texlive-fonts-recommended texlive-latex-extra texlive-fonts-extra \
     dvipng texlive-latex-recommended texlive-lang-other \
-    texlive-bibtex-extra biber xzdec
+    texlive-bibtex-extra texlive-plain-generic biber xzdec
 ```
 
 Penggunaan
