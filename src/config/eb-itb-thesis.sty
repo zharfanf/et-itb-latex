@@ -191,6 +191,47 @@ patent,unpublished,misc]
 \addtocontents{lof}{\protect\noaddvspace}
 \addtocontents{lot}{\protect\noaddvspace}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%  GLOSSARY AND ABBREVIATIONS  %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Load package acronym dan indexonlyfirst untuk hanya 
+% menunjukkan kemunculan pertama singkatan
+\usepackage[nomain, acronym]{glossaries}
+\usepackage[indexonlyfirst]{glossaries-extra}
+
+% Hilangkan judul dari glossary
+\renewcommand{\glossarysection}[2][]{}
+
+% Buat style glossary baru
+\newglossarystyle{daftarsingkatan}{
+	
+	% Dasarkan style pada style long3colheader
+	\setglossarystyle{long3colheader}
+	
+	% Ganti header glossary
+	\renewcommand{\glossaryheader}{
+		Singkatan &
+		Nama &
+		\centering Kemunculan Pertama
+		\endhead
+	}
+	
+	% Ganti lebar kolom glossary
+	\renewcommand{\glsdescwidth}{7cm}
+	\renewcommand{\glspagelistwidth}{4cm}
+	
+	% Ganti isi glossary
+	\renewcommand{\glossentry}[2]{
+		\glsentryitem{##1}\glstarget{##1}{\glossentryname{##1}} &
+		\glossentrydesc{##1} & \centering ##2
+		\tabularnewline
+	}
+	
+	\renewcommand{\glsgroupskip}{}
+}
+
+% Generate the glossary
+\makeglossaries
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %  FLOATS: FIGURES, TABLES, ALGORITHMS  %
