@@ -196,8 +196,10 @@ patent,unpublished,misc]
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Load package acronym dan indexonlyfirst untuk hanya 
 % menunjukkan kemunculan pertama singkatan
-\usepackage[nomain, acronym]{glossaries}
-\usepackage[indexonlyfirst]{glossaries-extra}
+\usepackage[nomain, abbreviations, indexonlyfirst]{glossaries-extra}
+
+% Generate the glossary
+\makeglossaries
 
 % Hilangkan judul dari glossary
 \renewcommand{\glossarysection}[2][]{}
@@ -229,9 +231,6 @@ patent,unpublished,misc]
 	
 	\renewcommand{\glsgroupskip}{}
 }
-
-% Generate the glossary
-\makeglossaries
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %  FLOATS: FIGURES, TABLES, ALGORITHMS  %
