@@ -17,7 +17,5 @@
 *.app
 *.xml
 texmf
-thesis.pdf
 .directory
-output/*
 build/*
