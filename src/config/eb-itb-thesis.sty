@@ -11,46 +11,65 @@
 %
 %-------------------------------------------------------------------%
 
-% Ukuran kertas
-\special{papersize=210mm,297mm}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%  DOCUMENT LAYOUT AND FORMATTING  %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Document layout
+\usepackage[top=3cm,bottom=3cm,left=4cm,right=3cm,a4paper]{geometry}
 
-% Setting margin
-\usepackage[top=3cm,bottom=3cm,left=4cm,right=3cm]{geometry}
-
-% Uncomment this line to use TNR font instead of CMU
-%\usepackage{mathptmx}
+% Uncomment these two packages if you want to use
+%  the Times New Roman font for your document
+% \usepackage{mathptmx}
+% \usepackage{newtxtext}
 
 % Judul bahasa Indonesia
 \usepackage[bahasa]{babel}
 
-% Line satu setengah spasi
+% Spacing 1.5
+\usepackage{setspace}
 \renewcommand{\baselinestretch}{1.5}
 
+% Prevent overfull (or underfull) if possible
+%\setlength{\emergencystretch}{25pt}
+
+% Avoid widow and orphan lines if possible
+\widowpenalty500
+\clubpenalty10000
+
+% Hyphenation penalty
+\include{hyphenation-id}
+\hyphenpenalty=10000
+\tolerance=1
+\sloppy
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %  BIBLIOGRAPHY AND CITATION  %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % use package biblatex
 \usepackage[backend=bibtex,
-            bibstyle=authoryear,
-            citestyle=authoryear,
-            sorting=nyt,
-            url=false,
-            maxcitenames=2,
-            maxnames=2,
-            dashed=false,
-            giveninits=true]{biblatex}
+language=english,
+bibstyle=authoryear,
+citestyle=authoryear,
+sorting=nyt,
+url=false,
+maxcitenames=2,
+maxnames=2,
+dashed=false,
+giveninits=true]{biblatex}
 \DeclareNameAlias{author}{last-first}
 
+\DeclareLanguageMapping{bahasa}{english}
 % Translate bibliography strings ke bahasa indonesia
 %   (karena 'bahasa' belum di-support)
-\DefineBibliographyStrings{english}{%
-  bibliography = {Daftar Pustaka},
-  references = {Referensi},
-  and = {dan},
-  techreport = {Dok. teknis},
-  phdthesis = {Disertasi doktoral\adddot},
-  andothers = {dkk\adddot}
+\DefineBibliographyStrings{bahasa}{%
+	bibliography = {Daftar Pustaka},
+	references = {Referensi},
+	page = {hal\adddot},
+	pages = {hal\adddot},
+	and = {dan},
+	techreport = {Dok. teknis},
+	phdthesis = {Disertasi doktoral\adddot},
+	andothers = {dkk\adddot}
 }
 
 % Field berikut tidak ditulis di daftar pustaka
@@ -58,6 +77,9 @@
 \AtEveryBibitem{\clearfield{isbn}}
 \AtEveryBibitem{\clearfield{month}}
 \AtEveryBibitem{\clearfield{doi}}
+\AtEveryBibitem{\clearfield{eprint}}
+\AtEveryBibitem{\clearfield{archivePrefix}}
+\AtEveryBibitem{\clearfield{primaryClass}}
 
 % Format entri daftar pustaka
 
@@ -89,7 +111,6 @@ patent,unpublished,misc]
 % Setting spasi di halaman daftar pustaka
 \setlength\bibitemsep{0.5\baselineskip}
 
-
 %%%%%%%%%%%%%%
 %  PACKAGES  %
 %%%%%%%%%%%%%%
@@ -100,12 +121,13 @@ patent,unpublished,misc]
 \usepackage{sectsty}
 \usepackage{chngcntr}
 \usepackage{etoolbox}
-\usepackage{hyperref}       % Package untuk link di daftar isi.
-\usepackage{titlesec}       % Package Format judul
+\usepackage{hyperref}
+\usepackage{titlesec}
 \usepackage{parskip}
 \usepackage{booktabs}
 \usepackage{tabularx}
-
+\usepackage[chapter]{algorithm}
+\usepackage{algpseudocode}
 
 %%%%%%%%%%%%%%$$%%%%%%%%%
 %  CHAPTER AND SECTION  %
@@ -113,21 +135,21 @@ patent,unpublished,misc]
 % Format judul bab
 \chapterfont{\centering \large}
 \titleformat{\chapter}[display]
-  {\large\centering\bfseries}
-  {\chaptertitlename\ \thechapter}{0em}
-    {\large\bfseries\MakeUppercase}
+{\large\centering\bfseries}
+{\chaptertitlename\ \thechapter}{0em}
+{\large\bfseries\MakeUppercase}
 \titlespacing*{\chapter}
-	{0pt}
-	{-1.5\baselineskip}
-	{1\baselineskip}
+{0pt}
+{-1.5\baselineskip}
+{1\baselineskip}
 
 % Format judul section (dan sub(sub)section)
 \titleformat*{\section}{\bfseries\normalsize}
 \titleformat*{\subsection}{\bfseries\normalsize}
 \titleformat*{\subsubsection}{\bfseries\normalsize}
-\titlespacing*{\section}{0pt}{1ex}{0pt}
-\titlespacing*{\subsection}{0pt}{1ex}{0pt}
-\titlespacing*{\subsubsection}{0pt}{1ex}{0pt}
+\titlespacing*{\section}{0pt}{2ex}{0pt}
+\titlespacing*{\subsection}{0pt}{2ex}{0pt}
+\titlespacing*{\subsubsection}{0pt}{2ex}{0pt}
 
 % Kedalaman hierarki section (paling dalam subsubsection)
 \setcounter{secnumdepth}{3}
@@ -162,25 +184,25 @@ patent,unpublished,misc]
 \let\oldappendix\appendices
 
 \renewcommand{\appendices}{%
-  \clearpage
-  % From now, everything goes to the app file and not to the toc
-  \let\tf@toc\tf@app
-  \addtocontents{app}{\protect\setcounter{tocdepth}{1}}
-  \immediate\write\@auxout{%
-    \string\let\string\tf@toc\string\tf@app^^J
-  }
-  \oldappendix
+	\clearpage
+	% From now, everything goes to the app file and not to the toc
+	\let\tf@toc\tf@app
+	\addtocontents{app}{\protect\setcounter{tocdepth}{1}}
+	\immediate\write\@auxout{%
+		\string\let\string\tf@toc\string\tf@app^^J
+	}
+	\oldappendix
 }%
 
 \newcommand{\listofappendices}{%
-  \begingroup
-  \renewcommand{\contentsname}{\appendixtocname}
-  \let\@oldstarttoc\@starttoc
-  \def\@starttoc##1{\@oldstarttoc{app}}
-  % Reusing the code for \tableofcontents with different
-  %   \contentsname and different file handle app
-  \tableofcontents
-  \endgroup
+	\begingroup
+	\renewcommand{\contentsname}{\appendixtocname}
+	\let\@oldstarttoc\@starttoc
+	\def\@starttoc##1{\@oldstarttoc{app}}
+	% Reusing the code for \tableofcontents with different
+	%   \contentsname and different file handle app
+	\tableofcontents
+	\endgroup
 }
 \makeatother
 %%%
@@ -190,6 +212,91 @@ patent,unpublished,misc]
 \newcommand*{\noaddvspace}{\renewcommand*{\addvspace}[1]{}}
 \addtocontents{lof}{\protect\noaddvspace}
 \addtocontents{lot}{\protect\noaddvspace}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%  FLOATS: FIGURES, TABLES, ALGORITHMS  %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Before:
+% ---
+% Counter untuk figure dan table.
+% \counterwithin{figure}{section}
+% \counterwithin{table}{section}
+% ---
+
+\usepackage[labelsep=period,
+justification=justified,
+format=hang]{caption}
+\usepackage[labelformat=simple]{subcaption}
+%% Hack subfigure cross-ref agar pakai tanda kurung
+%%   e.g. Gambar II.2(a), bukan Gambar II.2a
+%% (method recommended in subcaption package documentation)
+\renewcommand\thesubfigure{(\alph{subfigure})}
+
+% Counter untuk gambar dan tabel
+\renewcommand*{\thefigure}{\thechapter.\arabic{figure}}
+\renewcommand*{\thetable}{\thechapter.\arabic{table}}
+
+% Jarak spasi antara float dengan teks utama
+\captionsetup[figure]{belowskip=-1em}
+\captionsetup[subfigure]{belowskip=0pt}
+\setlength{\textfloatsep}{2\baselineskip}
+\setlength{\intextsep}{2\baselineskip}
+
+% Spasi single di environment table
+\AtBeginEnvironment{table}
+{\renewcommand{\baselinestretch}{1.0}}
+
+% Font lebih kecil untuk tabel
+\AtBeginEnvironment{tabular}
+{\small}
+
+% Spasi single di environment algorithm
+\AtBeginEnvironment{algorithm}
+{\renewcommand{\baselinestretch}{1.0}}
+
+% Rename "Algorithm" into "Algoritma"
+\makeatletter
+\renewcommand*{\ALG@name}{Algoritma}
+\newcommand{\algorithmname}{\ALG@name}
+\makeatother
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+%  MATHS AND EQUATIONS  %
+%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{mathtools}
+
+% Counter untuk equation
+\renewcommand*{\theequation}{\thechapter.\arabic{equation}}
+
+% Allow page breaks on long equations
+\allowdisplaybreaks[1-4]
+
+% Operator dan notasi custom tambahan
+% contoh: argmin dan argmax
+\DeclareMathOperator*{\argmax}{argmax}
+\DeclareMathOperator*{\argmin}{argmin}
+% contoh: notasi bayes p(x | y)
+\newcommand{\bayes}[2]{P(#1 \mid #2)\xspace}
+
+%%%%%%%%%%%%%%%%%
+%  GANTT CHART  %
+%%%%%%%%%%%%%%%%%
+\usepackage{changepage}
+\usepackage{pgfgantt}
+\ganttset{calendar week text={\currentweek}}
+
+%%%%%%%%%%%%%%
+%  DIAGRAMS  %
+%%%%%%%%%%%%%%
+\usepackage{tikz}
+\usetikzlibrary{shapes, arrows, fit}
+\tikzstyle{block} = [rectangle, draw, minimum height=3em, minimum width=6em, text centered]
+\tikzstyle{pinstyle} = [pin edge={to-, thin, black}]
+\tikzstyle{input} = [coordinate]
+\tikzstyle{output} = [coordinate]
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %  GLOSSARY AND ABBREVIATIONS  %
@@ -224,73 +331,11 @@ patent,unpublished,misc]
 	
 	% Ganti isi glossary
 	\renewcommand{\glossentry}[2]{
-		\glsentryitem{##1}\glstarget{##1}{\glossentryname{##1}} &
-		\glossentrydesc{##1} & \centering ##2
+		\glsentryitem{##1}\glstarget{##1}{\glossentryname{##1}} 
+		& \glossentrydesc{##1}
+		& \centering ##2
 		\tabularnewline
 	}
 	
 	\renewcommand{\glsgroupskip}{}
 }
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%  FLOATS: FIGURES, TABLES, ALGORITHMS  %
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Before:
-% ---
-% Counter untuk figure dan table.
-% \counterwithin{figure}{section}
-% \counterwithin{table}{section}
-% ---
-
-\usepackage[labelsep=period,
-justification=justified,
-format=hang]{caption}
-\usepackage[labelformat=simple]{subcaption}
-%% Hack subfigure cross-ref agar pakai tanda kurung
-%%   e.g. Gambar II.2(a), bukan Gambar II.2a
-%% (method recommended in subcaption package documentation)
-\renewcommand\thesubfigure{(\alph{subfigure})}
-
-% Counter untuk gambar dan tabel
-\renewcommand*{\thefigure}{\thechapter.\arabic{figure}}
-\renewcommand*{\thetable}{\thechapter.\arabic{table}}
-
-% Jarak spasi antara float dengan teks utama
-\captionsetup[figure]{belowskip=-1em}
-\captionsetup[subfigure]{belowskip=0pt}
-\setlength{\textfloatsep}{2\baselineskip}
-\setlength{\intextsep}{2\baselineskip}
-
-% Spasi single di environment table
-\AtBeginEnvironment{table}
-  {\renewcommand{\baselinestretch}{1.0}}
-
-% Avoid widow and orphan lines if possible
-\widowpenalty500
-\clubpenalty10000
-
-% Hyphenation penalty
-\hyphenpenalty=10000
-\tolerance=1
-\sloppy
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%
-%  MATHS AND EQUATIONS  %
-%%%%%%%%%%%%%%%%%%%%%%%%%
-\usepackage{amsmath}
-\usepackage{amsfonts}
-\usepackage{mathtools}
-
-% Counter untuk equation
-\renewcommand*{\theequation}{\thechapter.\arabic{equation}}
-
-% Allow page breaks on long equations
-\allowdisplaybreaks[1-4]
-
-% Operator dan notasi custom tambahan
-% contoh: argmin dan argmax
-\DeclareMathOperator*{\argmax}{argmax}
-\DeclareMathOperator*{\argmin}{argmin}
-% contoh: notasi bayes p(x | y)
-\newcommand{\bayes}[2]{P(#1 \mid #2)\xspace}
