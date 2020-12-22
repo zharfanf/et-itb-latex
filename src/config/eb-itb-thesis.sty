@@ -128,6 +128,7 @@ patent,unpublished,misc]
 \usepackage{tabularx}
 \usepackage[chapter]{algorithm}
 \usepackage{algpseudocode}
+\usepackage{comment}
 
 %%%%%%%%%%%%%%$$%%%%%%%%%
 %  CHAPTER AND SECTION  %
@@ -279,7 +280,7 @@ format=hang]{caption}
 \DeclareMathOperator*{\argmax}{argmax}
 \DeclareMathOperator*{\argmin}{argmin}
 % contoh: notasi bayes p(x | y)
-\newcommand{\bayes}[2]{P(#1 \mid #2)\xspace}
+\newcommand{\bayes}[2]{p(#1 \mid #2)\xspace}
 
 %%%%%%%%%%%%%%%%%
 %  GANTT CHART  %
@@ -305,15 +306,17 @@ format=hang]{caption}
 % menunjukkan kemunculan pertama singkatan
 \usepackage[nomain, abbreviations, indexonlyfirst]{glossaries-extra}
 
-% Generate the glossary
+% Buat glossary baru khusus untuk lambang
+\newglossary[slg]{symbols}{syi}{syg}{Daftar Lambang}
+
+% Buat glossary
 \makeglossaries
 
 % Hilangkan judul dari glossary
 \renewcommand{\glossarysection}[2][]{}
 
-% Buat style glossary baru
+% Style glossary untuk Daftar Singkatan
 \newglossarystyle{daftarsingkatan}{
-	
 	% Dasarkan style pada style long3colheader
 	\setglossarystyle{long3colheader}
 	
@@ -329,7 +332,45 @@ format=hang]{caption}
 	\renewcommand{\glsdescwidth}{7cm}
 	\renewcommand{\glspagelistwidth}{4cm}
 	
-	% Ganti isi glossary
+	% Buat line break dalam sel menjadi 1 spasi
+	\renewcommand{\baselinestretch}{1.0} 
+	\renewcommand{\arraystretch}{1.5}
+	\selectfont
+	
+	% Ganti isi glossary menjadi singkatan - deskripsi - kemunculan pertama
+	\renewcommand{\glossentry}[2]{
+		\glsentryitem{##1}\glstarget{##1}{\glossentryname{##1}} 
+		& \glossentrydesc{##1}
+		& \centering ##2
+		\tabularnewline
+	}
+	
+	\renewcommand{\glsgroupskip}{}
+}
+
+% Style glossary untuk Daftar Lambang
+\newglossarystyle{daftarlambang}{
+	% Dasarkan style pada style long3colheader
+	\setglossarystyle{long3colheader}
+	% Hack untuk mengubah lebar kolom lambang
+	\renewenvironment{theglossary}{\begin{longtable}{p{1.7cm}p{\glsdescwidth}p{\glspagelistwidth}}}{\end{longtable}}
+	% Ganti header glossary
+	\renewcommand{\glossaryheader}{
+		Lambang &
+		&
+		\endhead
+	}
+	
+	% Ganti lebar kolom glossary
+	\renewcommand{\glsdescwidth}{7cm}
+	\renewcommand{\glspagelistwidth}{4cm}
+	
+	% Buat line break dalam sel menjadi 1 spasi
+	\renewcommand{\baselinestretch}{1.0} 
+	\renewcommand{\arraystretch}{1.5}
+	\selectfont
+	
+	% Ganti isi glossary menjadi lambang - deskripsi - kemunculan pertama
 	\renewcommand{\glossentry}[2]{
 		\glsentryitem{##1}\glstarget{##1}{\glossentryname{##1}} 
 		& \glossentrydesc{##1}
