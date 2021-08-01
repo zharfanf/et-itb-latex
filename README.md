@@ -36,7 +36,7 @@ Agar menulis dokumen lebih mudah bisa juga menggunakan aplikasi tex editor seper
 Overleaf
 ----------
 
-Templat ini dapat digunakan pada platform [Overleaf](https://www.overleaf.com) dan teruji per 1 Agustus 2021. Untuk menggunakan templat ini pada platform Overleaf, cukup upload isi folder `src` ke proyek anda dengan menjaga struktur isinya. Kompilasi dapat dilakukan seperti biasa dengan menekan tombol *compile*.
+Templat ini dapat digunakan pada platform [Overleaf](https://www.overleaf.com) dan teruji per 1 Agustus 2021. Untuk menggunakan templat ini pada platform Overleaf, cukup *compress* isi folder `src` ke dalam sebuah file `*.zip` kemudian unggah file tersebut ke menu `New Project > Upload Project` pada laman utama Overleaf.  Kompilasi dapat dilakukan seperti biasa dengan menekan tombol *compile*.
 
 Bila anda menggunakan daftar singkatan dan lambang, jangan lupa untuk menghapus *cache* kompilasi tiap anda menambahkan singkatan maupun lambang baru.
 
