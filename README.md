@@ -1,29 +1,16 @@
 Template LaTeX Dokumen Tugas Akhir/Tesis Teknik Biomedis ITB
 ========================================================
-templat asli oleh: Petra Novandi <me@petrabarus.net>  
-diperbarui oleh: [Dionesius Agung](https://github.com/dionesiusap)  
-diadaptasi oleh: [Irfan Tito](https://github.com/titoirfan)
+Templat asli oleh: Petra Novandi <me@petrabarus.net>
+Diperbarui oleh: [Dionesius Agung](https://github.com/dionesiusap)
+Diperbarui dan diadaptasi oleh: [Irfan Tito Kurniawan](https://github.com/titoirfan)
 
-Dokumen ini merupakan templat LaTeX yang ditujukan untuk laporan
-tugas akhir atau tesis di program studi Teknik Biomedis ITB. Templat ini 
-penulis gunakan dalam penulisan laporan tugas akhir penulis dan dengan semangat
-berbagi penulis memutuskan untuk mempublikasikan templat ini agar
-dapat digunakan oleh banyak orang.
+Dokumen ini merupakan templat LaTeX yang ditujukan untuk laporan tugas akhir atau tesis di program studi Teknik Biomedis ITB. Templat ini penulis gunakan dalam penulisan laporan tugas akhir penulis dan dengan semangat berbagi penulis memutuskan untuk mempublikasikan templat ini agar dapat digunakan oleh banyak orang.
 
-Silakan mengunduh, menggunakan, memodifikasi, dan menyebarkan
-templat ini. :)
-
+Silakan mengunduh, menggunakan, memodifikasi, dan menyebarkan templat ini. :)
 
 Kebutuhan
 ---------
-
-Program telah diuji dalam sistem operasi Linux Ubuntu 14.04. Untuk melakukan instalasi
-perangkat lunak yang dibutuhkan, eksekusi perintah berikut.
-
-> **Update (2020/06/04)** Templat telah diuji dan berjalan dengan baik dalam OS Linux
-> Ubuntu 16.04 dan 18.04.
-> **Update (2020/09/28)** Templat telah diuji dan berjalan dengan baik dalam OS Linux
-> Ubuntu 20.04
+Templat telah diuji dan berjalan dengan baik dalam OS Linux Ubuntu 20.04. Untuk melakukan instalasi perangkat lunak yang dibutuhkan, eksekusi perintah berikut.
 
 ```
 sudo apt-get -qq update && sudo apt-get install -y --no-install-recommends \
@@ -32,11 +19,10 @@ sudo apt-get -qq update && sudo apt-get install -y --no-install-recommends \
     texlive-bibtex-extra texlive-plain-generic biber xzdec
 ```
 
-Penggunaan
+Penggunaan (Linux)
 ----------
 
-Templat ini telah dilengkapi oleh skrip untuk melakukan kompilasi
-Makefile. Untuk melakukan kompilasi cukup eksekusi perintah berikut
+Templat ini telah dilengkapi oleh skrip untuk melakukan kompilasi Makefile. Untuk melakukan kompilasi cukup eksekusi perintah berikut
 
 ```
 make
@@ -45,7 +31,14 @@ make
 Hasil kompilasi akan berada pada berkas `output/tesis.pdf`.
 
 Agar menulis dokumen lebih mudah bisa juga menggunakan aplikasi tex editor seperti
-[TeXstudio](https://www.texstudio.org/) atau [overleaf](https://www.overleaf.com).
+[TeXstudio](https://www.texstudio.org/).
+
+Overleaf
+----------
+
+Templat ini dapat digunakan pada platform [Overleaf](https://www.overleaf.com) dan teruji per 1 Agustus 2021. Untuk menggunakan templat ini pada platform Overleaf, cukup upload isi folder `src` ke proyek anda dengan menjaga struktur isinya. Kompilasi dapat dilakukan seperti biasa dengan menekan tombol *compile*.
+
+Bila anda menggunakan daftar singkatan dan lambang, jangan lupa untuk menghapus *cache* kompilasi tiap anda menambahkan singkatan maupun lambang baru.
 
 Kontribusi
 ----------
@@ -56,16 +49,10 @@ kualitas hasil dan penggunaan templat ini.
 
 [comment]: <> (temporary change to link biar gk bingung)
 Kritik dan saran tersebut dapat dikirim melalui URL
-<https://github.com/dionesiusap/if-itb-latex/issues>.
+<https://github.com/titoirfan/eb-itb-latex/issues>.
 
 Terima Kasih
 -----------
 
 * Steven Lolong atas pemberian templat LaTeX yang asli.
 * Peb Ruswono Aryan atas bantuan pelengkapan struktur dokumen.
-
-TO DO
------
-**Feel free to drop suggestions and issues [here](https://github.com/dionesiusap/if-itb-latex/issues) (PRs are also welcome!)**
-
-- [ ] List of Appendices format (see [issue #1](https://github.com/dionesiusap/if-itb-latex/issues/1))
