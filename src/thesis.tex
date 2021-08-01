@@ -56,18 +56,23 @@
     \renewcommand*\bibname{DAFTAR PUSTAKA}
 
     % Lanjutan frontmatter
-    \tableofcontents
-    \listofappendices
-    {%
-		\let\oldnumberline\numberline%
-		\renewcommand{\numberline}{\figurename~\oldnumberline}%
-		\listoffigures%
-	}
-	{%
-		\let\oldnumberline\numberline%
-		\renewcommand{\numberline}{\tablename~\oldnumberline}%
-		\listoftables%
-	}
+    \begin{singlespace}
+    	\tableofcontents
+    \end{singlespace}
+	\begin{singlespace}
+    	\listofappendices
+    	% \appendix
+    \end{singlespace}
+    \begin{singlespace}
+    	\let\oldnumberline\numberline
+    	\renewcommand{\numberline}{\figurename~\oldnumberline}
+    	\listoffigures
+    \end{singlespace}
+	\begin{singlespace}
+		\let\oldnumberline\numberline
+		\renewcommand{\numberline}{\tablename~\oldnumberline}
+		\listoftables
+	\end{singlespace}
 	\input{chapters/abbreviations}
     
     %----------------------------------------------------------------%
@@ -95,10 +100,9 @@
     %----------------------------------------------------------------%
 
     % Daftar pustaka
-    \begingroup
-        \renewcommand{\baselinestretch}{1.0}
+    \begin{singlespace}
         \printbibliography[heading=bibintoc]
-    \endgroup
+    \end{singlespace}
 
     % Before:
     % ---

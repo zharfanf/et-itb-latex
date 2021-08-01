@@ -109,7 +109,7 @@ patent,unpublished,misc]
 \renewcommand*{\nameyeardelim}{\addcomma\space}
 
 % Setting spasi di halaman daftar pustaka
-\setlength\bibitemsep{0.5\baselineskip}
+\setlength\bibitemsep{0pt}
 
 %%%%%%%%%%%%%%
 %  PACKAGES  %
@@ -148,9 +148,9 @@ patent,unpublished,misc]
 \titleformat*{\section}{\bfseries\normalsize}
 \titleformat*{\subsection}{\bfseries\normalsize}
 \titleformat*{\subsubsection}{\bfseries\normalsize}
-\titlespacing*{\section}{0pt}{2ex}{0pt}
-\titlespacing*{\subsection}{0pt}{2ex}{0pt}
-\titlespacing*{\subsubsection}{0pt}{2ex}{0pt}
+\titlespacing*{\section}{0pt}{1ex}{0pt}
+\titlespacing*{\subsection}{0pt}{1ex}{0pt}
+\titlespacing*{\subsubsection}{0pt}{1ex}{0pt}
 
 % Kedalaman hierarki section (paling dalam subsubsection)
 \setcounter{secnumdepth}{3}
@@ -162,6 +162,7 @@ patent,unpublished,misc]
 \usepackage[titles]{tocloft}
 \usepackage[titletoc]{appendix}
 \usepackage{tocbibind}
+\usepackage{etoolbox}
 
 % Kedalaman hierarki maksimum ToC
 % (yang masuk ToC hanya sampai subsection: I.1.1.)
@@ -171,11 +172,15 @@ patent,unpublished,misc]
 \setlength{\cftbeforechapskip}{0pt}
 
 % Tambah kata "BAB" sebelum nomor bab di daftar isi
-% TODO: still problematic when used with list of appendices (uncomment these 4 following lines to reproduce the problem)
-% \renewcommand{\cftchappresnum}{BAB~} % BAB before number in ToC
-% \newlength{\mylen} % a scratch length
-% \settowidth{\mylen}{\bfseries\cftchappresnum\cftchapaftersnum} % extra space
-% \addtolength{\cftchapnumwidth}{\mylen} % add the extra space
+\newlength{\mylen} % a scratch length
+
+\renewcommand{\cftchappresnum}{BAB~} % BAB before number in ToC
+\settowidth{\mylen}{\bfseries\cftchappresnum\cftchapaftersnum} % extra space
+\addtolength{\cftchapnumwidth}{\mylen} % add the extra space
+
+% Hilangkan indentasi di entri LoF dan LoT dan tambahkan ruang antara nomor dengan caption
+\cftsetindents{figure}{0em}{2.75em}
+\cftsetindents{table}{0em}{2.75em}
 
 % Pisah daftar lampiran dari ToC
 %%%
@@ -198,6 +203,12 @@ patent,unpublished,misc]
 \newcommand{\listofappendices}{%
 	\begingroup
 	\renewcommand{\contentsname}{\appendixtocname}
+	
+	\addtolength\cftchapnumwidth{-\mylen}%
+	\renewcommand{\cftchappresnum}{~}%
+	\settowidth\mylen{\bfseries\cftchappresnum\cftchapaftersnum}%
+	\addtolength\cftchapnumwidth{\mylen}
+	
 	\let\@oldstarttoc\@starttoc
 	\def\@starttoc##1{\@oldstarttoc{app}}
 	% Reusing the code for \tableofcontents with different
@@ -228,6 +239,7 @@ patent,unpublished,misc]
 justification=justified,
 format=hang]{caption}
 \usepackage[labelformat=simple]{subcaption}
+\usepackage{multirow}
 %% Hack subfigure cross-ref agar pakai tanda kurung
 %%   e.g. Gambar II.2(a), bukan Gambar II.2a
 %% (method recommended in subcaption package documentation)
@@ -245,7 +257,10 @@ format=hang]{caption}
 
 % Spasi single di environment table
 \AtBeginEnvironment{table}
-{\renewcommand{\baselinestretch}{1.0}}
+{
+	\renewcommand{\baselinestretch}{1.0}
+	\renewcommand{\arraystretch}{1.2}
+}
 
 % Font lebih kecil untuk tabel
 \AtBeginEnvironment{tabular}
@@ -261,13 +276,13 @@ format=hang]{caption}
 \newcommand{\algorithmname}{\ALG@name}
 \makeatother
 
-
 %%%%%%%%%%%%%%%%%%%%%%%%%
 %  MATHS AND EQUATIONS  %
 %%%%%%%%%%%%%%%%%%%%%%%%%
 \usepackage{amsmath}
 \usepackage{amsfonts}
 \usepackage{mathtools}
+\usepackage{bm}
 
 % Counter untuk equation
 \renewcommand*{\theequation}{\thechapter.\arabic{equation}}
@@ -304,7 +319,7 @@ format=hang]{caption}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Load package acronym dan indexonlyfirst untuk hanya 
 % menunjukkan kemunculan pertama singkatan
-\usepackage[nomain, abbreviations, indexonlyfirst]{glossaries-extra}
+\usepackage[automake, nomain, abbreviations, indexonlyfirst]{glossaries-extra}
 
 % Buat glossary baru khusus untuk lambang
 \newglossary[slg]{symbols}{syi}{syg}{Daftar Lambang}
@@ -317,6 +332,8 @@ format=hang]{caption}
 
 % Style glossary untuk Daftar Singkatan
 \newglossarystyle{daftarsingkatan}{
+	\renewcommand{\baselinestretch}{1.0}
+	
 	% Dasarkan style pada style long3colheader
 	\setglossarystyle{long3colheader}
 	
@@ -324,7 +341,7 @@ format=hang]{caption}
 	\renewcommand{\glossaryheader}{
 		Singkatan &
 		Nama &
-		\centering Kemunculan Pertama
+		\centering Kemunculan Pertama\\
 		\endhead
 	}
 	
@@ -333,8 +350,7 @@ format=hang]{caption}
 	\renewcommand{\glspagelistwidth}{4cm}
 	
 	% Buat line break dalam sel menjadi 1 spasi
-	\renewcommand{\baselinestretch}{1.0} 
-	\renewcommand{\arraystretch}{1.5}
+	\renewcommand{\arraystretch}{1.0}
 	\selectfont
 	
 	% Ganti isi glossary menjadi singkatan - deskripsi - kemunculan pertama
@@ -350,14 +366,20 @@ format=hang]{caption}
 
 % Style glossary untuk Daftar Lambang
 \newglossarystyle{daftarlambang}{
+	\renewcommand{\baselinestretch}{1.0}
+	
 	% Dasarkan style pada style long3colheader
 	\setglossarystyle{long3colheader}
+	
 	% Hack untuk mengubah lebar kolom lambang
+	% Ubah p{...cm} untuk mensejajarkan kolom nama singkatan dengan lambang
 	\renewenvironment{theglossary}{\begin{longtable}{p{1.7cm}p{\glsdescwidth}p{\glspagelistwidth}}}{\end{longtable}}
+	
 	% Ganti header glossary
 	\renewcommand{\glossaryheader}{
 		Lambang &
 		&
+		\centering \\
 		\endhead
 	}
 	
@@ -366,8 +388,7 @@ format=hang]{caption}
 	\renewcommand{\glspagelistwidth}{4cm}
 	
 	% Buat line break dalam sel menjadi 1 spasi
-	\renewcommand{\baselinestretch}{1.0} 
-	\renewcommand{\arraystretch}{1.5}
+	\renewcommand{\arraystretch}{1.0}
 	\selectfont
 	
 	% Ganti isi glossary menjadi lambang - deskripsi - kemunculan pertama
