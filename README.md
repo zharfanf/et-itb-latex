@@ -1,4 +1,4 @@
-Template LaTeX Dokumen Tugas Akhir/Tesis Teknik Biomedis ITB
+Template LaTeX Dokumen Tugas Akhir S1 Teknik Telekomunikasi ITB
 ========================================================
 templat asli oleh: Petra Novandi <me@petrabarus.net>  
 diperbarui oleh: [Dionesius Agung](https://github.com/dionesiusap)  
@@ -27,7 +27,7 @@ make
 Hasil kompilasi akan berada pada berkas `output/thesis.pdf`.
 
 Agar menulis dokumen lebih mudah bisa juga menggunakan aplikasi tex editor seperti
-[TeXstudio](https://www.texstudio.org/) atau [overleaf](https://www.overleaf.com).
+[TeXstudio](https://www.texstudio.org/) atau [Overleaf](https://www.overleaf.com).
 
 Terima Kasih
 -----------
@@ -35,4 +35,4 @@ Terima Kasih
 * Steven Lolong atas pemberian templat LaTeX yang asli.
 * Peb Ruswono Aryan atas bantuan pelengkapan struktur dokumen.
 * Dionesius Agung
-* Irfan Tito
+* Irfan Tito Kurniawan
