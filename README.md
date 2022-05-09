@@ -2,7 +2,7 @@ Template LaTeX Dokumen Tugas Akhir/Tesis Teknik Biomedis ITB
 ========================================================
 templat asli oleh: Petra Novandi <me@petrabarus.net>  
 diperbarui oleh: [Dionesius Agung](https://github.com/dionesiusap)  
-diadaptasi oleh: [Irfan Tito](https://github.com/titoirfan)
+diadaptasi oleh: [Irfan Tito](https://github.com/titoirfan)  
 diadaptasi untuk ET oleh: [Rama Rahardi](https://github.com/ramhdi)
 
 Dokumen ini merupakan templat LaTeX yang ditujukan untuk laporan
@@ -24,7 +24,7 @@ Makefile. Untuk melakukan kompilasi cukup eksekusi perintah berikut
 make
 ```
 
-Hasil kompilasi akan berada pada berkas `output/tesis.pdf`.
+Hasil kompilasi akan berada pada berkas `output/thesis.pdf`.
 
 Agar menulis dokumen lebih mudah bisa juga menggunakan aplikasi tex editor seperti
 [TeXstudio](https://www.texstudio.org/) atau [overleaf](https://www.overleaf.com).
