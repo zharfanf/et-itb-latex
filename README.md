@@ -36,3 +36,4 @@ Terima Kasih
 * Peb Ruswono Aryan atas bantuan pelengkapan struktur dokumen.
 * Dionesius Agung
 * Irfan Tito Kurniawan
+# TA-ical
